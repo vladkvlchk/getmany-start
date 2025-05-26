@@ -12,21 +12,15 @@ import {
   CreditCard,
   Bell,
   Zap,
-  MessageCircle,
-  Hash,
   Slack,
-  Building2,
   PiIcon as PipeIcon,
   BookOpen,
   CheckCircle2,
   Play,
-  ChevronUp,
-  ChevronDown,
   Eye,
   EyeOff,
   Settings2Icon,
   ArrowRightIcon,
-  BookOpenIcon,
   CableIcon,
 } from "lucide-react"
 
@@ -195,7 +189,7 @@ export default function TasksPage() {
     },
   ])
 
-  const [widgetVisible, setWidgetVisible] = useState(true)
+  // const [widgetVisible, _] = useState(true)
   const [showCompleted, setShowCompleted] = useState(false)
 
   const completedTasks = tasks.filter((task) => task.completed).length
@@ -211,77 +205,75 @@ export default function TasksPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Sticky Widget */}
-      {widgetVisible && (
-        <div className="">
-          <div className="max-w-7xl mx-auto p-6 pb-0">
-            <div className="flex items-center justify-between gap-6">
-              {/* Title Section */}
-              <div className="w-1/2">
-                <p className="text-sm text-gray-600">👋 Welcome, Vladyslav Kovalchuk</p>
-                <h1 className="text-2xl font-bold text-gray-900">Let's get started!</h1>
-                <p className="text-sm text-gray-600 mt-2">Let's set up your account so you can start to get the most out of your insights. This page will stay available until you complete all the steps.</p>
-                {/* Progress Section */}
-                <div className="flex-1 mt-4 flex items-center space-x-4 flex-1 max-w-2xl">
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm font-medium">Progress</span>
-                      <Badge variant="secondary" className="text-xs">
-                        {progressPercentage}%
-                      </Badge>
-                    </div>
-                    <div className="w-full border-2 border-black rounded-md">
-                      <Progress value={progressPercentage} className="h-2 bg-white" />
-                    </div>
-                      <p className="text-xs text-gray-500 mt-1">
-                        {completedTasks} of {totalTasks} completed
-                      </p>
+      <div className="">
+        <div className="max-w-7xl mx-auto p-6 pb-0">
+          <div className="flex items-center justify-between gap-6">
+            {/* Title Section */}
+            <div className="w-1/2">
+              <p className="text-sm text-gray-600">👋 Welcome, Vladyslav Kovalchuk</p>
+              <h1 className="text-2xl font-bold text-gray-900">Let&apos;s get started!</h1>
+              <p className="text-sm text-gray-600 mt-2">Let&apos;s set up your account so you can start to get the most out of your insights. This page will stay available until you complete all the steps.</p>
+              {/* Progress Section */}
+              <div className="flex-1 mt-4 flex items-center space-x-4 flex-1 max-w-2xl">
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-sm font-medium">Progress</span>
+                    <Badge variant="secondary" className="text-xs">
+                      {progressPercentage}%
+                    </Badge>
                   </div>
+                  <div className="w-full border-2 border-black rounded-md">
+                    <Progress value={progressPercentage} className="h-2 bg-white" />
+                  </div>
+                    <p className="text-xs text-gray-500 mt-1">
+                      {completedTasks} of {totalTasks} completed
+                    </p>
                 </div>
-              </div>
-
-              {/* Video Section */}
-              <div className="w-1/2 flex items-end space-x-4">
-                <div className="w-160 h-80 bg-gray-100 rounded-xl flex items-center justify-center cursor-pointer">
-                  <Play className="h-20 w-20 text-gray-400" />
-                </div>
-                {/* <div className="flex-1">
-                  <h3 className="font-medium text-sm">Welcome Video</h3>
-                  <p className="text-xs text-gray-500">3:24 introduction</p>
-                </div> */}
-                {/* <Button size="sm" variant="outline">
-                  <Play className="h-3 w-3 mr-1" />
-                  Watch
-                </Button> */}
               </div>
             </div>
 
-
-            <div className="mt-6 flex items-center justify-between gap-6">
-
-              {/* Controls */}
-              <div className="flex items-center space-x-2">
-                <Button
-                  variant="link"
-                  size="sm"
-                  onClick={() => setShowCompleted(!showCompleted)}
-                  className="flex items-center space-x-2"
-                >
-                  {showCompleted ? <EyeOff className="h-3 w-3" /> : <Eye className="h-3 w-3" />}
-                  <span className="hidden sm:inline">{showCompleted ? "Hide" : "Show"} Completed {!showCompleted && `(${completedTasks})`}</span>
-                </Button>
-                {/* <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setWidgetVisible(false)}
-                  className="text-gray-500 hover:text-gray-700"
-                >
-                  <ChevronUp className="h-4 w-4" />
-                </Button> */}
+            {/* Video Section */}
+            <div className="w-1/2 flex items-end space-x-4">
+              <div className="w-160 h-80 bg-gray-100 rounded-xl flex items-center justify-center cursor-pointer">
+                <Play className="h-20 w-20 text-gray-400" />
               </div>
+              {/* <div className="flex-1">
+                <h3 className="font-medium text-sm">Welcome Video</h3>
+                <p className="text-xs text-gray-500">3:24 introduction</p>
+              </div> */}
+              {/* <Button size="sm" variant="outline">
+                <Play className="h-3 w-3 mr-1" />
+                Watch
+              </Button> */}
+            </div>
+          </div>
+
+
+          <div className="mt-6 flex items-center justify-between gap-6">
+
+            {/* Controls */}
+            <div className="flex items-center space-x-2">
+              <Button
+                variant="link"
+                size="sm"
+                onClick={() => setShowCompleted(!showCompleted)}
+                className="flex items-center space-x-2"
+              >
+                {showCompleted ? <EyeOff className="h-3 w-3" /> : <Eye className="h-3 w-3" />}
+                <span className="hidden sm:inline">{showCompleted ? "Hide" : "Show"} Completed {!showCompleted && `(${completedTasks})`}</span>
+              </Button>
+              {/* <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setWidgetVisible(false)}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                <ChevronUp className="h-4 w-4" />
+              </Button> */}
             </div>
           </div>
         </div>
-      )}
+      </div>
 
       {/* Show Widget Button */}
       {/* {!widgetVisible && (
@@ -424,7 +416,7 @@ export default function TasksPage() {
           <div className="text-center py-12">
             <CheckCircle2 className="h-12 w-12 text-green-500 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-gray-900 mb-2">All tasks completed!</h3>
-            <p className="text-gray-600">Great job! You've finished all your tasks.</p>
+            <p className="text-gray-600">Great job! You&apos;ve finished all your tasks.</p>
           </div>
         )}
       </div>
