@@ -401,7 +401,7 @@ export default function TasksPage() {
                       onClick={() => toggleTask(task.id)}
                       variant={task.completed ? "outline" : "default"}
                       size="sm"
-                      className={"w-full"}
+                      className={`w-full ${task.completed && 'text-gray-600'}`}
                     >
                       {task.completed ? "Completed" : task.buttonText}
                     </Button>
